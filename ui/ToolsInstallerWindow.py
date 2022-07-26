@@ -15,39 +15,34 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFormLayout, QHBoxLayout, QLabel,
-    QPushButton, QSizePolicy, QTextEdit, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QFormLayout, QHBoxLayout,
+    QLabel, QPushButton, QSizePolicy, QTextEdit,
+    QVBoxLayout, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(548, 167)
+        Form.resize(548, 284)
         self.verticalLayout = QVBoxLayout(Form)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.formLayout = QFormLayout()
-        self.formLayout.setObjectName(u"formLayout")
         self.label = QLabel(Form)
         self.label.setObjectName(u"label")
 
-        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.label)
+        self.horizontalLayout.addWidget(self.label)
 
-        self.textEdit = QTextEdit(Form)
-        self.textEdit.setObjectName(u"textEdit")
+        self.txt_tool_loc = QTextEdit(Form)
+        self.txt_tool_loc.setObjectName(u"txt_tool_loc")
         sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.textEdit.sizePolicy().hasHeightForWidth())
-        self.textEdit.setSizePolicy(sizePolicy)
-        self.textEdit.setMaximumSize(QSize(16777215, 30))
+        sizePolicy.setHeightForWidth(self.txt_tool_loc.sizePolicy().hasHeightForWidth())
+        self.txt_tool_loc.setSizePolicy(sizePolicy)
+        self.txt_tool_loc.setMaximumSize(QSize(16777215, 30))
 
-        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.textEdit)
-
-
-        self.horizontalLayout.addLayout(self.formLayout)
+        self.horizontalLayout.addWidget(self.txt_tool_loc)
 
         self.btn_browse = QPushButton(Form)
         self.btn_browse.setObjectName(u"btn_browse")
@@ -70,21 +65,36 @@ class Ui_Form(object):
 
         self.formLayout_2.setWidget(0, QFormLayout.LabelRole, self.label_2)
 
-        self.textEdit_2 = QTextEdit(Form)
-        self.textEdit_2.setObjectName(u"textEdit_2")
+        self.txt_module_call = QTextEdit(Form)
+        self.txt_module_call.setObjectName(u"txt_module_call")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.txt_module_call.sizePolicy().hasHeightForWidth())
+        self.txt_module_call.setSizePolicy(sizePolicy2)
 
-        self.formLayout_2.setWidget(0, QFormLayout.FieldRole, self.textEdit_2)
+        self.formLayout_2.setWidget(0, QFormLayout.FieldRole, self.txt_module_call)
+
+        self.label_3 = QLabel(Form)
+        self.label_3.setObjectName(u"label_3")
+
+        self.formLayout_2.setWidget(1, QFormLayout.LabelRole, self.label_3)
+
+        self.combo_version = QComboBox(Form)
+        self.combo_version.setObjectName(u"combo_version")
+
+        self.formLayout_2.setWidget(1, QFormLayout.FieldRole, self.combo_version)
 
 
         self.verticalLayout.addLayout(self.formLayout_2)
 
         self.btn_install = QPushButton(Form)
         self.btn_install.setObjectName(u"btn_install")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.MinimumExpanding)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.btn_install.sizePolicy().hasHeightForWidth())
-        self.btn_install.setSizePolicy(sizePolicy2)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Maximum)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.btn_install.sizePolicy().hasHeightForWidth())
+        self.btn_install.setSizePolicy(sizePolicy3)
         self.btn_install.setMinimumSize(QSize(0, 30))
 
         self.verticalLayout.addWidget(self.btn_install)
@@ -96,10 +106,11 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
+        Form.setWindowTitle(QCoreApplication.translate("Form", u"Maya Tools Installer", None))
         self.label.setText(QCoreApplication.translate("Form", u"Tool Location:", None))
         self.btn_browse.setText(QCoreApplication.translate("Form", u"browse", None))
         self.label_2.setText(QCoreApplication.translate("Form", u"Module Call:", None))
+        self.label_3.setText(QCoreApplication.translate("Form", u"Maya Version:", None))
         self.btn_install.setText(QCoreApplication.translate("Form", u"Install", None))
     # retranslateUi
 
