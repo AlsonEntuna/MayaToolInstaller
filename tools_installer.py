@@ -23,7 +23,7 @@ class ToolsIntallerWindow(QtWidgets.QWidget):
     def _intsall_tool(self):
         module_args = self.ui.txt_module_call.toPlainText()
         # TODO: generate macro script that will be executed in maya
-        files = os.
+        # files = os.
 
     def _browse_tool_module(self):
         tool_path = filedialog.askdirectory(title='Select tools folder path')
